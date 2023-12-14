@@ -1,4 +1,4 @@
-A local command line tool for managing and executing LLamafiles (llamafiles)[https://github.com/Mozilla-Ocho/llamafile]
+A local command line tool for managing and executing LLamafiles [llamafiles](https://github.com/Mozilla-Ocho/llamafile)
 
 
 # Quick Start
