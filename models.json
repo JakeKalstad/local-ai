@@ -1,0 +1,60 @@
+{
+    "available": [
+        {
+            "name": "Llava",
+            "version": "1.5",
+            "url": "https://huggingface.co/jartine/llava-v1.5-7B-GGUF/resolve/main/llava-v1.5-7b-q4-main.llamafile",
+            "server-url": "https://huggingface.co/jartine/llava-v1.5-7B-GGUF/resolve/main/llava-v1.5-7b-q4-server.llamafile",
+            "parameters": [
+                {
+                    "switch": "p",
+                    "explanation": "the prompt to be passed into the model"
+                },
+                {
+                    "switch": "image",
+                    "explanation": "Image to be provided to the model"
+                },
+                {
+                    "switch": "temp",
+                    "explanation": "Model temp setting default (7)"
+                }
+            ]
+        },
+        {
+            "name": "Minstral7b",
+            "version": "0.1",
+            "url": "https://huggingface.co/jartine/mistral-7b.llamafile/resolve/main/mistral-7b-instruct-v0.1-Q4_K_M-main.llamafile",
+            "server-url": "https://huggingface.co/jartine/mistral-7b.llamafile/resolve/main/mistral-7b-instruct-v0.1-Q4_K_M-server.llamafile",
+            "parameters": [
+                {
+                    "switch": "p",
+                    "explanation": "Prompt to be passed into the model"
+                },
+                {
+                    "switch": "summarize",
+                    "explanation": "URL to be summarized"
+                },
+                {
+                    "switch": "temp",
+                    "explanation": "Model temp setting default (7)"
+                }
+            ]
+        },
+        {
+            "name": "WizardCoder-Python-13B",
+            "version": "1",
+            "url": "https://huggingface.co/jartine/wizardcoder-13b-python/resolve/main/wizardcoder-python-13b-main.llamafile",
+            "server-url": "https://huggingface.co/jartine/wizardcoder-13b-python/resolve/main/wizardcoder-python-13b-server.llamafile",
+            "parameters": [
+                {
+                    "switch": "p",
+                    "explanation": "Prompt to be passed into the model"
+                },
+                {
+                    "switch": "temp",
+                    "explanation": "Model temp setting default (7)"
+                }
+            ]
+        }
+    ]
+}
