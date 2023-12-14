@@ -30,6 +30,8 @@ pub struct Model {
     pub url: String,
     #[serde(rename = "server-url")]
     pub server_url: String,
+    #[serde(rename = "gguf-url")]
+    pub gguf_url: String,
     pub parameters: Vec<Parameter>,
 }
 
@@ -37,6 +39,7 @@ enum ModelType {
     CLI,
     Server,
 }
+
 impl Model {
     fn params(&self) {
         println!("{} parameters", self.name);
@@ -59,7 +62,11 @@ impl Model {
             }
             param_string = format!("{param_string} -{switch} \"{value}\"")
         }
-        if self.name == "Llava" {
+        if self.gguf_url.len() > 0 {
+            let (_, fname) = self.gguf_url.rsplit_once('/').unwrap();
+            param_string = format!("{param_string} -m {fname}")
+        }
+        if self.name == "Llava" { 
             param_string = format!("{param_string} --silent-prompt 2>/dev/null")
         }
         println!("./{fname} {param_string}");
@@ -76,6 +83,11 @@ impl Model {
         let (_, fname) = url.rsplit_once('/').unwrap();
         run_command(&format!("chmod +x {fname}"));
 
+        if self.gguf_url.len() > 0 {
+            run_command(&format!("wget {}", self.gguf_url));
+            let (_, fname) = self.gguf_url.rsplit_once('/').unwrap();
+            run_command(&format!("chmod +x {fname}"));
+        }
         let mut f = File::options()
             .read(true)
             .write(true)
@@ -145,9 +157,15 @@ fn main() {
     let config = fs::read_to_string("models.json").expect("configuration not found");
     let models: Models = serde_json::from_str(&config).expect("configuration is malformed");
 
-    let cached_blob = fs::read_to_string("cached.json").expect("configuration not found");
+    let cached_blob = match fs::read_to_string("cached.json") {
+        Ok(s) => s,
+        Err(e)=> {
+            File::create("cached.json").expect("File created");
+            "".to_string()
+        }
+    };
     let cached_models: Models = serde_json::from_str(&cached_blob).unwrap_or_default();
-
+    
     let mut model_names = vec![];
     for m in &models.available {
         model_names.push(m.name.as_str());

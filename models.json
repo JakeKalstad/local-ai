@@ -5,6 +5,7 @@
             "version": "1.5",
             "url": "https://huggingface.co/jartine/llava-v1.5-7B-GGUF/resolve/main/llava-v1.5-7b-q4-main.llamafile",
             "server-url": "https://huggingface.co/jartine/llava-v1.5-7B-GGUF/resolve/main/llava-v1.5-7b-q4-server.llamafile",
+            "gguf-url": "https://huggingface.co/jartine/llava-v1.5-7B-GGUF/blob/main/llava-v1.5-7b-Q4_K.gguf",
             "parameters": [
                 {
                     "switch": "p",
@@ -25,6 +26,7 @@
             "version": "0.1",
             "url": "https://huggingface.co/jartine/mistral-7b.llamafile/resolve/main/mistral-7b-instruct-v0.1-Q4_K_M-main.llamafile",
             "server-url": "https://huggingface.co/jartine/mistral-7b.llamafile/resolve/main/mistral-7b-instruct-v0.1-Q4_K_M-server.llamafile",
+            "gguf-url": "",
             "parameters": [
                 {
                     "switch": "p",
@@ -45,6 +47,7 @@
             "version": "1",
             "url": "https://huggingface.co/jartine/wizardcoder-13b-python/resolve/main/wizardcoder-python-13b-main.llamafile",
             "server-url": "https://huggingface.co/jartine/wizardcoder-13b-python/resolve/main/wizardcoder-python-13b-server.llamafile",
+            "gguf-url": "",
             "parameters": [
                 {
                     "switch": "p",
